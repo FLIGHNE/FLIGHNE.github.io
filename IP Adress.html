@@ -6,6 +6,7 @@
 <Body>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
 <script src="script.js"></script>
+<script src="java2.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
@@ -76,6 +77,7 @@ align-items: right;
 }
 
 h1 {
+    cursor: pointer;
 align-text: left;
 font-size: 35px;
 border:1px solid #17202A;
@@ -83,7 +85,9 @@ background-color:#ECFF00;
 text-align: center;
 }
 
-h2{border:1px solid #17202A;
+h2{
+    cursor:copy;
+    border:1px solid #17202A;
 background-color:#ECFF00; 
 }
 
@@ -205,6 +209,55 @@ a2 {
 background-color:#ECFF00; 
 }
 
+form {
+    margin-left: 30rem;
+    margin-top: 10rem;
+    margin-bottom: 10rem;
+background: #ffff;
+display: flex;
+flex-direction: column;
+padding: 2vw 4vw;
+width: 90%;
+max-width: 600px;
+border-radius: 10px;
+}
+form h5{
+    color: #555;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+form input, form textarea {
+    border: 0;
+    margin: 10px 0;
+   padding: 20px;
+   outline: none;
+   background: #f5f5f5; 
+   font-size: 16px;
+}
+form button {
+    padding: 15px;
+    background: #ff5361;
+    color: #fff;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    width: 150px;
+    margin: 20px auto 0;
+    border-radius: 30px;
+}
+
+form label {
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+
+
+
+
+
 </style>
 
 <nav>
@@ -244,11 +297,44 @@ background-color:#ECFF00;
     located by doing a web search for something that suits your style of play.</a2></li>
 </div>
 </div>
+</div>
+
+
+
+<div class="container4">
+    <form
+    action="https://formspree.io/f/xqkoplbo"
+    method="POST"
+  >
+  <h5>Connect With Us!</h5>  
+  <label>
+    Name: Surname, Middle Initial, Given Name 
+    <input type="text" name="Name" placeholder="Name Here" required>
+
+  </label>
+  <label>
+      Your email: Ex. example@gmail.com
+      <input type="email" name="Email" placeholder="Email Here" required>
+    </label>
+<label>
+    Your Phone Number:
+    <input type="text" id="Phone" name="PhoneNumber" placeholder="Phone Number" required>
+
+
+</label>
+    <label>
+      Your Feedback:
+      <textarea type="textarea" name="Feedback/Message" placeholder="Your FeedBack Will Be Read Within 24 Hours So Put Down Your Gmails!" rows="4"></textarea>
+    </label>
+    <!-- your other form fields go here -->
+    <button type="submit">Send</button>
+  </form>
+</div>
 
 <footer>
     <div class="content-footer">
     <h6><ion-icon name="checkmark-done-circle-outline"></ion-icon> Bawal TNT SMP Website <ion-icon name="checkmark-done-circle-outline"></ion-icon></h6>
-    <p6><ion-icon name="create"></ion-icon> "This Website is Updated At 6:38 PM In Febuary 8 2023" <ion-icon name="create"></ion-icon> || <ion-icon name="build"></ion-icon> This Website Is Still For Rework Every Day <ion-icon name="build"></ion-icon> || <ion-icon name="megaphone"></ion-icon> Shout Out To MC Support No affiliation with MC</p6>
+    <p6><ion-icon name="create"></ion-icon> "This Website is Updated At 10:13 PM In Febuary 10 2023" <ion-icon name="create"></ion-icon> || <ion-icon name="build"></ion-icon> This Website Is Still For Rework Every Day <ion-icon name="build"></ion-icon> || <ion-icon name="megaphone"></ion-icon> Shout Out To MC Support No affiliation with MC</p6>
     <p7><i class="fa-solid fa-house-signal"></i> Connect With Us <i class="fa-solid fa-house-signal"></i></p7>
     <ul class="Socials">
     <li onmouseover="changeBgColor(this, 'blue')" onmouseout="changeBgColor(this, '#111')"><a href="https://github.com/FLIGHNE"><ion-icon name="logo-github"></ion-icon></a></li>
