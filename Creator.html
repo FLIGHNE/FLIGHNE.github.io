@@ -13,6 +13,14 @@
 <nav>
 <label class="logo"></label>
 <ul class="navbar">
+    <div class="select">
+        <i class="fa-solid fa-circle-half-stroke"></i>
+        <select class="select__input" id="selTheme">
+            <option value="auto">Auto</option>
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+        </select>
+    </div>
 <li onmouseover="changeBgColor(this, 'White')" onmouseout="changeBgColor(this, '#116C07')"><a href="index.html"><ion-icon name="home-outline"></ion-icon> Home</a></li>
 <li onmouseover="changeBgColor(this, 'White')" onmouseout="changeBgColor(this, '#116C07')"><a href="https://linktr.ee/flighne?utm_source=linktree_profile_share&ltsid=c9247d2c-b871-49aa-8f4c-a41dc4b9a492"><ion-icon name="share-social-outline"></ion-icon> Socials</a></li>
 <li onmouseover="changeBgColor(this, 'White')" onmouseout="changeBgColor(this, '#116C07')"><a href="Creator.html"><ion-icon name="people-outline"></ion-icon> Creators</a></li>
@@ -70,14 +78,36 @@ text-transform: uppercase;
 font-weight: bold;
 }
 
-body {
-background-image:url(https://images.saymedia-content.com/.image/t_share/MTkzODU1MjgzMjUxMTkzMzI4/svg-wave-generator.gif);
+body{
+    --background-color:	#FAEBD7;
+    --background-color-alt: #eeee;
+    --trim-color: #dddd;
+    --text-color: #333;
+    background: var(--background-color);
 width: 100%;
 height: 240vh;
 background-repeat: no-repeat;
 background-size:cover;
 background-position: center;
 }
+
+body.theme-dark {
+    --background-color: var(--dark-background-color);
+    --background-color-alt: var(--dark-background-color-alt);
+    --trim-color: var(--dark-trim-color);
+    --text-color: #eeee;
+}
+
+@media (prefers-color-scheme: dark) {
+    body.theme-auto {
+        --background-color: var(--dark-background-color);
+        --background-color-alt: var(--dark-background-color-alt);
+        --trim-color: var(--dark-trim-color);
+        --text-color: var(--dark-text-color);
+    }
+}
+
+
 
 img {
 border-image: 3px solid #FFFFFF;
@@ -168,6 +198,45 @@ margin: 0 10px;
     font-weight: 200;
 }
 
+:root {
+    /* Dark Theme */
+    --dark-background-color: #37474f;
+    --dark-background-color-alt: #222222;
+    --dark-trim-color: #333333;
+    --dark-text-color: #eeeeee;
+
+    /* Light Theme */
+    --background-color: #FAEBD7;
+    --background-color-alt: #eeee;
+    --trim-color: #dddd;
+    --text-color: #333;
+} 
+
+.select {
+    font-size: 30px;
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 8px;
+    border-radius: 10px;
+}
+.select__input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding: 7px 14px;
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: var(--text-color);
+    font-weight: 500;
+    font-family: var();
+}
+
+.select__input option {
+    color: #000000;
+}
+
+
 
 </style>
 
@@ -194,7 +263,7 @@ margin: 0 10px;
 <footer>
     <div class="content-footer">
     <h6><ion-icon name="checkmark-done-circle-outline"></ion-icon> Bawal TNT SMP Website <ion-icon name="checkmark-done-circle-outline"></ion-icon></h6>
-    <p6><ion-icon name="create"></ion-icon> "This Website is Updated At 10:13 PM In Febuary 10 2023" <ion-icon name="create"></ion-icon>||<ion-icon name="build"></ion-icon> This Website Is Still For Rework Every Day <ion-icon name="build"></ion-icon></p6>
+    <p6><ion-icon name="create"></ion-icon> "This Website is Updated At 8:13 PM In Febuary 11 2023" <ion-icon name="create"></ion-icon>||<ion-icon name="build"></ion-icon> This Website Is Still For Rework Every Day <ion-icon name="build"></ion-icon></p6>
     <p7><i class="fa-solid fa-house-signal"></i> Connect With Us <i class="fa-solid fa-house-signal"></i></p7>
     <ul class="Socials">
     <li onmouseover="changeBgColor(this, 'blue')" onmouseout="changeBgColor(this, '#111')"><a href="https://github.com/FLIGHNE"><ion-icon name="logo-github"></ion-icon></a></li>

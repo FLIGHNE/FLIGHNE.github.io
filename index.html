@@ -9,7 +9,7 @@
 
 <style>
 header {
-position: flex;
+position: fixed;
 width: 100%;
 top: 0;
 right: 0;
@@ -34,7 +34,7 @@ nav{
     align-items: center;
     margin-left: 15px;
     margin-right: 15px;
-background: #222
+background: #B2BEB5
 }
 
 .navbar ul {
@@ -58,14 +58,36 @@ font-weight: bold;
 }
 
 body {
-background-image:url(https://i.makeagif.com/media/10-19-2018/bJkA_-.gif);
+    --background-color:	#FAEBD7;
+    --background-color-alt: #eeee;
+    --trim-color: #dddd;
+    --text-color: #333;
+    background: var(--background-color);
 width: 100%;
-min-height: 100vh;
 height: 500vh;
+height: 300vh;
 background-repeat: yes-repeat;
+align-items: right;
 background-size:cover;
-background-position:center;
 }
+
+body.theme-dark {
+    --background-color: var(--dark-background-color);
+    --background-color-alt: var(--dark-background-color-alt);
+    --trim-color: var(--dark-trim-color);
+    --text-color: #eeee;
+}
+
+@media (prefers-color-scheme: dark) {
+    body.theme-auto {
+        --background-color: var(--dark-background-color);
+        --background-color-alt: var(--dark-background-color-alt);
+        --trim-color: var(--dark-trim-color);
+        --text-color: var(--dark-text-color);
+    }
+}
+
+
 
 
 h4 {
@@ -79,6 +101,12 @@ padding: 10px;
 text {
 font-size: 25px; }
 
+text9 {
+    margin-right: 5rem;
+    font-size: 25px;
+    display: block;
+    text-align: center;
+}
 
 p {
 color:#4A235A
@@ -115,16 +143,25 @@ div#third{
 background-color: #898B70;
 }
 
-img {
-    display: flex;
-width: 1200px;
-float:center;
+.ImgMain {
+    display: block;
+width: 800px;
+margin-left: auto;
+margin-right: auto;
 }
+
+.ImgMain2 {
+    display: block;
+width: 10px;
+margin-left: auto;
+margin-right: auto;  
+}
+
 
 ul{
 font-size: 20px;
 text-align:center;
-text-decoration: none;
+text-decoration: transparent;
 }
 
 ol{
@@ -136,11 +173,6 @@ text-decoration: none;
 a {
 text-decoration: none;
 text-align: center;
-}
-
-.wrapper {
-margin: 0 auto;
-width: 1200px;
 }
 
 .ellipsis{
@@ -218,22 +250,54 @@ margin: 0 10px;
     opacity: .4;
     font-weight: 200;
 }
-.container5 {
-    max-width: 1200px;
-    margin: auto;
-}
-.Pictures {
-    background: #9FE2BF;
-    margin: 50px;
-    border: 1px solid #000;
-float: initial;
-width: 390px;
-}    
+
 text5 {
     font-size: 25px;
 display: block;
-margin-left: 5rem;
+text-align: center;
  }
+text9 {
+    margin-bottom: 50px;
+}
+
+:root {
+    /* Dark Theme */
+    --dark-background-color: #37474f;
+    --dark-background-color-alt: #222222;
+    --dark-trim-color: #333333;
+    --dark-text-color: #eeeeee;
+
+    /* Light Theme */
+    --background-color: #FAEBD7;
+    --background-color-alt: #eeee;
+    --trim-color: #dddd;
+    --text-color: #333;
+} 
+
+.select {
+    font-size: 30px;
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 8px;
+    border-radius: 10px;
+}
+.select__input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding: 7px 14px;
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: var(--text-color);
+    font-weight: 500;
+    font-family: var();
+}
+
+.select__input option {
+    color: #000000;
+}
+
 
 
 
@@ -251,14 +315,23 @@ margin-left: 5rem;
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 
+<p style="text-align:center;"> This Website Is Not Yet Official </p>
 
 <nav>
 <ul class="navbar">
-<li onmouseover="changeBgColor(this, 'White')" onmouseout="changeBgColor(this, '#222')"><a href="#"><ion-icon name="home-outline"></ion-icon> Home</a></li>
-<li onmouseover="changeBgColor(this, 'White')" onmouseout="changeBgColor(this, '#222')"><a href="https://linktr.ee/flighne?utm_source=linktree_profile_share&ltsid=c9247d2c-b871-49aa-8f4c-a41dc4b9a492"><ion-icon name="share-social-outline"></ion-icon> Socials</a></li>
-<li onmouseover="changeBgColor(this, 'White')" onmouseout="changeBgColor(this, '#222')"><a href="Creator.html"><ion-icon name="people-outline"></ion-icon> Creators</a></li>
-<li onmouseover="changeBgColor(this, 'White')" onmouseout="changeBgColor(this, '#222')"><a href="https://discord.gg/q5UHbjwCfp"><ion-icon name="logo-discord"></ion-icon> Discord</a></li>
-<li onmouseover="changeBgColor(this, 'White')" onmouseout="changeBgColor(this, '#222')"><a href="IP Adress.html"><ion-icon name="barcode-outline"></ion-icon> IP ADRESS</a></li>
+    <div class="select">
+        <ion-icon name="contrast-outline">Dark Mode</ion-icon>
+        <select class="select__input" id="selTheme">
+            <option value="auto">Auto</option>
+            <option value="light" style="color: white;">Light</option>
+            <option value="dark">Dark</option>
+        </select>
+    </div>
+<li onmouseover="changeBgColor(this, '#D3D3D3')" onmouseout="changeBgColor(this, '#B2BEB5')"><a href="#"><ion-icon name="home-outline"></ion-icon> Home</a></li>
+<li onmouseover="changeBgColor(this, '#D3D3D3')" onmouseout="changeBgColor(this, '#B2BEB5')"><a href="https://linktr.ee/flighne?utm_source=linktree_profile_share&ltsid=c9247d2c-b871-49aa-8f4c-a41dc4b9a492"><ion-icon name="share-social-outline"></ion-icon> Socials</a></li>
+<li onmouseover="changeBgColor(this, '#D3D3D3')" onmouseout="changeBgColor(this, '#B2BEB5')"><a href="Creator.html"><ion-icon name="people-outline"></ion-icon> Creators</a></li>
+<li onmouseover="changeBgColor(this, '#D3D3D3')" onmouseout="changeBgColor(this, '#B2BEB5')"><a href="https://discord.gg/q5UHbjwCfp"><ion-icon name="logo-discord"></ion-icon> Discord</a></li>
+<li onmouseover="changeBgColor(this, '#D3D3D3')" onmouseout="changeBgColor(this, '#B2BEB5')"><a href="IP Adress.html"><ion-icon name="barcode-outline"></ion-icon> IP ADRESS</a></li>
 </ul>
 </nav>
 
@@ -277,9 +350,8 @@ margin-left: 5rem;
 <a href="#" target="_blanc">
 <div class="content" id="third"><ion-icon name="construct-outline"></ion-icon> *IN MAINTENANCE * <ion-icon name="construct-outline"></ion-icon></div>
 </a>
-<div class="wrapper">
-<img src="MC1.png" alt="Image Here">
-</div>
+
+<img src="MC1.png" alt="Image Here" class="ImgMain">
 
 <h4>Server Admin</h4>
 <ol>
@@ -311,21 +383,44 @@ margin-left: 5rem;
 <h4>Rules of The Server</h4>
 <text> Rules Are Be Kind And Respectfull to Everyone, Dont Be Rude </text>
 <h4>Pictures</h4>
-<div class="container5">
-<div class="Pictures">
-<img src="maps.png"><img>
+<img src="maps.png" class="ImgMain" alt="Image Here"><img>
 <text5><i class="fa-solid fa-location-dot"></i> Maps Of The Whole Main Bases <i class="fa-solid fa-map-location-dot"></i></text5>
-</div>
-<div class="Pictures">
-<img src="chloe1.png"></img>
+<br>
+<img src="chloe1.png" class="ImgMain" alt="Image Here"></img>
+<br>
 <text5><i class="fa-solid fa-location-dot"></i> Wild Chloe: On The Friendship Bridge <i class="fa-solid fa-map-location-dot"></i></text5>
-</div>
-</div>
+
+
+<h4 onmouseover="changeText(this, 'Feedback Are Seen At The IP Adress Page')" onmouseout="changeText(this, '================ Feedback ================')" style="cursor: pointer;"> ================ Feedback ================</h4>
+<text9><i class="fa-solid fa-circle-question"></i> In This Part You Can Send Your FeedBack To This Website How You Feel, Did You Find a 
+    Hard Time On Navigating Our Website Please Let Us Know By Sending A "Form" To Let Us Know What We Will Improve Thank You! 😀😁 <i class="fa-solid fa-circle-question"></i>
+<h1> <i class="fa-solid fa-question"></i> || How To Send A Form? || <i class="fa-solid fa-question"></i></h1>
+<c>
+<li>1. Go To IP Adress Page And NAvigate To The Bottom Part</li>
+<li>2. Fill Up The Box And Click Send</li>
+<li>3. Wait Until it Says Go Back Then Your Good To Go</li>
+<li>4. You will Be Notified On Your Given Email Regarding On Your Concern</li>
+<li>5. Waiting Will Be Within 24 Hours If We Are Not Busy</li>
+</c>
+</text9>
+<h4><i class="fa-solid fa-file-pen"></i> BTNT 1.5 : ||Update Of This Website|| <i class="fa-solid fa-file-pen"></i></h4>
+<text9>
+<c>
+    <li>1. Fixed Bugs On Clickable Link</li>
+    <li>2. Added Auto,Dark,Light Mode For You</li>
+    <li>3. Changed The Color Of Website *Not Yet official*</li>
+    <li>4. Added The FeedBack Help</li>
+    <li>5. Modified The Form At FeedBack</li>
+    </c>
+    </text9>
+
+
+
 
 <footer>
     <div class="content-footer">
     <h6><ion-icon name="checkmark-done-circle-outline"></ion-icon> Bawal TNT SMP Website <ion-icon name="checkmark-done-circle-outline"></ion-icon></h6>
-    <p6><ion-icon name="create"></ion-icon> "This Website is Updated At 10:13 PM In Febuary 10 2023" <ion-icon name="create"></ion-icon>||<ion-icon name="build"></ion-icon> This Website Is Still For Rework Every Day <ion-icon name="build"></ion-icon></p6>
+    <p6><ion-icon name="create"></ion-icon> "This Website is Updated At 8:13 PM In Febuary 11 2023" <ion-icon name="create"></ion-icon>||<ion-icon name="build"></ion-icon> This Website Is Still For Rework Every Day <ion-icon name="build"></ion-icon></p6>
     <p7><i class="fa-solid fa-house-signal"></i> Connect With Us <i class="fa-solid fa-house-signal"></i></p7>
     <ul class="Socials">
     <li onmouseover="changeBgColor(this, 'blue')" onmouseout="changeBgColor(this, '#111')"><a href="https://github.com/FLIGHNE"><ion-icon name="logo-github"></ion-icon></a></li>
