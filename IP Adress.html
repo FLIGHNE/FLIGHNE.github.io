@@ -143,10 +143,12 @@ font-size: 25px;
 }
 text2 {
 color: blue;
+cursor: copy;
 }
-text4 { color: blue;}
 
 C {
+margin-left: auto;
+margin-right: auto;
 font-size: 25px;
 background-color: #9FE2BF;
 border: 3px solid #000000;
@@ -296,7 +298,13 @@ form button {
     width: 150px;
     margin: 20px auto 0;
     border-radius: 30px;
+    transition: transform .2s ease-in-out;
 }
+form button:hover {
+    background: #F78992;
+    transform: scale(1.3);
+}
+
 
 form label {
     display: flex;
@@ -380,7 +388,7 @@ border-radius: 20px;
 <h1 onmouseover="changeText(this, 'Copy The IP Adress')" onmouseout="changeText(this, 'Bawal TNT SMP Server IP Adress')">Bawal TNT SMP Server IP Adress</h1>
 <a2>
 <text>Bawal TNT SMP IP Adress Is:</text> <text2>bawaltnt.aternos.me</text2>
-<text3>Or</text3> <text4>bawaltnt.aternos.me:27521</text4>
+<text3>Or</text3> <text2>bawaltnt.aternos.me:27521</text2>
 </a2>
 <h1>How to Add A Server To Multiplayer In Minecraft</h1>
 <text5>If you Dont Know How to Add a Server Please Watch<text5>
@@ -424,11 +432,12 @@ border-radius: 20px;
   <select name="Problems" id = "webs" required="">
 <option value=""> Select 1 Option Down Below:  </option>
 <option value="Rtext"> I Cant Read Text </option>
-<option value="navigation"> Navigation </option>
+<option value="navigation"> Navigation - Too Hard </option>
 <option value="copytext"> I Cant Copy A Text </option>
-<option value="webcolor"> website Color Looks Bad </option>
+<option value="webcolor"> Website Color Looks Bad </option>
 <option value="others"> *Others - Write in Feedback Box* </option>
-<option value="n/a"> N/A </option>
+<option value="cantconnect"> I Cant Connect To Server </option>
+<option value="n/a"> *N/A* </option>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
@@ -438,7 +447,7 @@ border-radius: 20px;
 </label>
     <label>
       Your Feedback: What Do You Want To Say To Us
-      <textarea type="textarea" name="Feedback/Message" placeholder="Your FeedBack Will Be Read Within 24 Hours So Put Down Your Gmails!" rows="4"></textarea>
+      <textarea type="textarea" name="Feedback/Message" placeholder="Your FeedBack & Message Will Be Read Within 24 Hours So Chat Us NOW!" rows="4"></textarea>
     </label>
     <!-- your other form fields go here -->
     <button type="submit">Send</button>
@@ -448,7 +457,7 @@ border-radius: 20px;
 <footer>
     <div class="content-footer">
     <h6><ion-icon name="checkmark-done-circle-outline"></ion-icon> Bawal TNT SMP Website <ion-icon name="checkmark-done-circle-outline"></ion-icon></h6>
-    <p6><ion-icon name="create"></ion-icon> "This Website is Updated At 4:10 PM In Febuary 12 2023" <ion-icon name="create"></ion-icon> || <ion-icon name="build"></ion-icon> This Website Is Still For Rework Every Day <ion-icon name="build"></ion-icon> || <ion-icon name="megaphone"></ion-icon> Shout Out To MC Support No affiliation with MC</p6>
+    <p6><ion-icon name="create"></ion-icon> "This Website is Updated At 9:18 PM In Febuary 15 2023" <ion-icon name="create"></ion-icon> || <ion-icon name="build"></ion-icon> This Website Is Still For Rework Every Day <ion-icon name="build"></ion-icon> || <ion-icon name="megaphone"></ion-icon> Shout Out To MC Support No affiliation with MC</p6>
     <p7><i class="fa-solid fa-house-signal"></i> Connect With Us <i class="fa-solid fa-house-signal"></i></p7>
     <ul class="Socials">
     <li><a href="https://github.com/FLIGHNE"><ion-icon name="logo-github"></ion-icon></a></li>
