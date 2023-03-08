@@ -1,15 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <link rel="icon" href="favicon-32x32.png"/>
+
+
+
 <Body" >
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
+</div>
+<div class="loader">
+  <img class="imgloader" src="loader.png">
+  <p class="textloader">BTSMP From FLIGHNE</p>
+
+</div>
 
 <!-- Style Part Is This Part -->
 <style>
+    html {
+        scroll-behavior: smooth;
+    }
 ::-webkit-scrollbar {
     width: 10px;
     height: 10px;
@@ -27,7 +39,49 @@
 ::-webkit-scrollbar-thumb:hover{
     background-color: #78B3EE;
 }
+.loader {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 104vw;
+  height: 105vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #333333;
+  transition: opacity 0.75s, visibility 1s;
+  z-index: 99999;
+}
 
+.loader--hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loader::after {
+  content: "";
+  width: 75px;
+  height: 75px;
+  border: 15px solid #FAEBD7;
+  border-top-color: #FFBF00;
+  border-radius: 50%;
+  animation: loading .4s ease infinite;
+}
+.textloader{
+  color: #dddddd;
+  font-size: 16px;
+}
+
+@keyframes loading {
+  from {
+    transform: rotate(0turn);
+  }
+  to {
+    transform: rotate(1turn);
+  }
+}
 
 header {
 position: fixed;
@@ -66,6 +120,7 @@ margin: 0;
 }
 .navbar li {
 display:inline-block;
+transition: all .3s ease;
 }
 .navbar a{
 text-decoration: none;
@@ -122,7 +177,7 @@ padding: 10px;
 text {
     border: 3px solid #000000;
     border-radius: 10px;
-    background-color: #21618C;
+    background-color: #126ca8;
 font-size: 25px; }
 
 text9 {
@@ -130,6 +185,7 @@ text9 {
     font-size: 25px;
     display: block;
     text-align: center;
+    
 }
 
 p {
@@ -147,13 +203,18 @@ p {
 font-size: 30px;}
 
 div.content{
-
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+width: fit-content;
+display: flex;
+position: relative;
 background-color:#229954;
 font-size: 20px;
 border:1px solid #17202A;
-border-radius: 20px;
+border-radius: 5px;
 float: center-left;
-margin:20px;
+
 }
 
 div#first {
@@ -215,7 +276,7 @@ footer {
     top: 100%;
 background: #111;
 height: auto;
-width: 100vw;
+width: 100%;
 font-family: Open Sans;
 padding-top: 40px;
 color: #fff;
@@ -268,6 +329,11 @@ transition: transform .2s ease-in-out;
     color: aqua;
     transform: scale(1.4);
 }
+.Socials a i {
+    font-size: 1.1rem;
+}
+
+
 
 .footer-bottom{
     background: #000000;
@@ -282,6 +348,7 @@ transition: transform .2s ease-in-out;
 }
 
 .footer-bottom span{
+    cursor: pointer;
     text-transform: uppercase;
     opacity: .4;
     font-weight: 200;
@@ -297,19 +364,14 @@ text9 {
     margin-right: auto;
     border: 3px solid #000000;
     border-radius: 10px;
-    background: #21618C;
+    background: #126ca8;
 
-}
-text2 {
-background: #229954;
-border: 3px solid #000000;
-    border-radius: 10px;
 }
 
 text3{
     border: 3px solid #000000;
     border-radius: 10px;
-    background: #21618C;
+    background: #126ca8;
 }
 
 text5{
@@ -320,7 +382,6 @@ text5{
 
 c {
     background: #007CF7;
-    opacity: 0.6;
     border-radius: 20px;
     border: 3px solid #000000;
     font-size: 25px;
@@ -387,6 +448,272 @@ h1{
    height: 563px;
    margin-bottom: 60px;
 }
+#go-up-button {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-size: 16px;
+  background-color: whitesmoke;
+  color: #111;
+  border: 3px solid #000000;
+  border-radius: 50%;
+  padding: 12px 16px;
+  cursor: pointer;
+  transition: opacity 0.3s ease-in-out;
+}
+
+#go-up-button:hover {
+  background-color: #555;
+}
+
+#go-up-button.show {
+  display: block;
+  opacity: 1;
+}
+.banner {
+    width: 100%;
+    position: relative;
+    display: flex;
+   border: 3px solid rgb(179, 72, 72);
+margin: auto;
+height: 65%;
+max-height: 40vh;
+background-image: url(banner.gif);
+background-size: cover;
+background-position: 50%;
+border-radius: 30px;
+margin-top: 20px;
+margin-left: auto;
+margin-right: auto;
+filter: brightness(60%);
+transition: filter .3s ease;
+}
+.banner:hover {
+    filter: brightness(80%);
+    cursor: default;
+}
+
+.tooltip1::after{
+    position: absolute;
+    width: 12em;
+    background-color: #229954;
+content: attr(data-tooltip);
+padding: 0.6rem 0;
+color: #fff;
+margin: auto;
+left: 25em;
+right: 0;
+bottom: 3.5em;
+text-align: center;
+border-radius: 0.2em;
+
+}
+
+.tooltip1::before{
+position: absolute;
+content: "";
+height: 0;
+width: 0;
+border-top:1.5em solid #229954;
+border-left: 0.5em solid transparent;
+border-right: 0.5em solid transparent;
+top: 35.5em;
+margin: auto;
+left: 25em;
+right: 0;
+bottom: 3em;
+}
+.tooltip1:before, 
+.tooltip1:after {
+    display: none;
+}
+.tooltip1:hover:before, 
+.tooltip1:hover:after {
+display: block;
+}
+
+.tooltip1:after {
+    position: absolute;
+    filter: brightness(100%)
+    width: 12em;
+    background-color: #229954;
+content: attr(data-tooltip);
+padding: 0.6rem 0;
+color: #fff;
+margin: auto;
+left: 25em;
+right: 0;
+bottom: 3.5em;
+text-align: center;
+border-radius: 0.2em;
+}
+
+.tooltip2 {
+    width: fit-content;
+    font-size: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    justify-content: center;
+  position: relative;
+  display: block;
+  background: green;
+ border-left: 6px solid goldenrod;
+  cursor: pointer;
+  border-bottom: 3px outset #007CF7;
+  border-top:  3px outset #007CF7;
+}
+
+.tooltip2 .tooltiptext1 {
+    left: 150px;
+    bottom: 25px;
+    font-size: 16px;
+  visibility: hidden;
+  width: 150px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.tooltip2:hover .tooltiptext1 {
+  visibility: visible;
+  opacity: 1;
+}
+.tooltip3 {
+    display: flex;
+    font-size: 25px;
+    border-radius: 10px;
+    position: relative;
+    display: inline-block;
+    background: yellowgreen;
+    border: 3px solid #000000;
+    cursor: pointer;
+    transition: all .4s ease-in;
+}
+
+.tooltip3 .tooltiptext2 {
+    bottom: 35px;
+    left: -20px;
+    font-size: 16px;
+  visibility: hidden;
+  width: 120px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.tooltip3:hover .tooltiptext2 {
+  visibility: visible;
+  opacity: 1;
+}
+.tooltip0 {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+  cursor: pointer;
+}
+
+.tooltip0 .tooltiptext3 {
+    left: 1750px;
+    bottom: 70px;
+  visibility: hidden;
+  width: 100px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 3px 0;
+  position: inherit;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.tooltip0:hover .tooltiptext3 {
+  visibility: visible;
+  opacity: 1;
+}
+
+.Custom1-hr{
+  border: none;
+  height: 5px;
+  background-color: #FFBF00; /* Change this to the color you want */
+  margin: 20px 0; /* Adjust this to control the margin above and below the hr */
+}
+.dropdown ul {
+  background-color: #21618C;
+  display: none;
+  position: absolute;
+  margin-top: 0%;
+  margin-left: 0%;
+}
+
+.dropdown:hover ul {
+  display: block;
+}
+
+.dropdown ul li {
+  display: block;
+}
+
+.dropdown ul li a {
+  padding: 20px;
+}
+.footertext {
+  display: flex;
+  margin-bottom: 20px;
+  margin-top: 0px;
+}
+
+.col-1, .col-2 {
+  flex-basis: 50%;
+  margin-inline: 100px;
+}
+.games {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.footertext .games{
+  list-style-type: none;
+  vertical-align: middle;
+}
+.footertext li{
+    text-align:unset;
+    white-space: nowrap;
+
+}
+
+
+.foottext {
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center;
+  justify-content: center;
+
+}
+.games :hover  {
+    color: #9FE2BF;
+    transform: scale(1.4);
+    transition: all .2s ease-in-out;
+}
+.footertext a {
+    color: #fde400;
+}
+
 
 
 </style>
@@ -394,52 +721,59 @@ h1{
 <!-- The Real Thing Starts Here -->
 <script src="script.js"></script>
 
-<h3 style="text-align:center;">Bawal TNT SMP Website</h3>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 
-<p style="text-align:center;">Here You Can Send Feedback To Out Server</p>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-
-<p style="text-align:center;"> This Website Is Not Yet Official </p>
+<div class="banner"></div>
+<br>
+<div class="tooltip2">
+  This Website Not Yet official! *Hover Me*
+<span class="tooltiptext1"><i class="fa-solid fa-comments"></i>Note: This Website Is Still In Develope Stage! Give Us A FeedBack!</span>
+</div>
 
 <nav>
 <ul class="navbar">
     <div class="select">
         <ion-icon name="contrast-outline">Dark Mode</ion-icon>
-        <select class="select__input" id="selTheme">
+        <select class="select__input" id="selTheme" title="Change Theme" onmouseover="changeBgColor(this, '#D3D3D3')" onmouseout="changeBgColor(this, '#21618C')">
             <option value="auto">Auto</option>
             <option value="light" style="color: white;">Light</option>
             <option value="dark">Dark</option>
         </select>
     </div>
-<li onmouseover="changeBgColor(this, '#D3D3D3')" onmouseout="changeBgColor(this, '#21618C')"><a href="#"><ion-icon name="home-outline"></ion-icon> Home</a></li>
-<li onmouseover="changeBgColor(this, '#D3D3D3')" onmouseout="changeBgColor(this, '#21618C')"><a href="https://linktr.ee/flighne?utm_source=linktree_profile_share&ltsid=c9247d2c-b871-49aa-8f4c-a41dc4b9a492"><ion-icon name="share-social-outline"></ion-icon> Socials</a></li>
-<li onmouseover="changeBgColor(this, '#D3D3D3')" onmouseout="changeBgColor(this, '#21618C')"><a href="Creator.html"><ion-icon name="people-outline"></ion-icon> Creators</a></li>
-<li onmouseover="changeBgColor(this, '#D3D3D3')" onmouseout="changeBgColor(this, '#21618C')"><a href="https://discord.gg/q5UHbjwCfp"><ion-icon name="logo-discord"></ion-icon> Discord</a></li>
-<li onmouseover="changeBgColor(this, '#D3D3D3')" onmouseout="changeBgColor(this, '#21618C')"><a href="IP Adress.html"><ion-icon name="barcode-outline"></ion-icon> IP ADRESS</a></li>
-</ul>
+<li onmouseover="changeBgColor(this, '#D3D3D3')" onmouseout="changeBgColor(this, '#21618C')" title="Go Home"><a href="#"><ion-icon name="home-outline"></ion-icon> Home</a></li>
+<li onmouseover="changeBgColor(this, '#D3D3D3')" onmouseout="changeBgColor(this, '#21618C')" title="Socials"><a onclick="checker()" class="btn btn-default" href="https://linktr.ee/flighne?utm_source=linktree_profile_share&ltsid=c9247d2c-b871-49aa-8f4c-a41dc4b9a492" target="_blank"><ion-icon name="share-social-outline"></ion-icon> Socials</a></li>
+<li onmouseover="changeBgColor(this, '#D3D3D3')" onmouseout="changeBgColor(this, '#21618C')" title="Creators"><a href="Creator.html"><ion-icon name="people-outline"></ion-icon> Creators</a></li>
+<li onmouseover="changeBgColor(this, '#D3D3D3')" onmouseout="changeBgColor(this, '#21618C')" title="Discord"><a onclick="checker()" class="btn btn-default" href="https://discord.gg/q5UHbjwCfp" target="_blank"><ion-icon name="logo-discord"></ion-icon> Discord</a></li>
+<li class="dropdown" onmouseover="changeBgColor(this, 'White')" onmouseout="changeBgColor(this, '#21618C')" title="IP Adress & FeedBack Form">
+    <a href="IP Adress.html"><ion-icon name="barcode-outline"></ion-icon> IP ADRESS</a>
+    <ul>
+       <li onmouseover="changeBgColor(this, 'White')" onmouseout="changeBgColor(this, '#21618C')"><a href="Shoutout.html">Shoutouts</a></li>
+    </ul>
+    </li>
 </nav>
 
-<hr>
+<hr class="Custom1-hr">
+
+
+<div class="tooltip0">
+<button id="go-up-button" onclick="scrollToTop()" title="Go Up"><i class="fas fa-angle-double-up"></i></button>
+<span class="tooltiptext3">  </span>
+</div>
 
 <title>Bawal TNT SMP</title>
 
-<a href="https://storyzink.com/m/gd393024?s=2" target="_blanc">
-<div class="content" id="first"><ion-icon name="megaphone-outline"></ion-icon>Message Us!<ion-icon name="megaphone-outline"></ion-icon></div>
+<a onclick="checker()" class="btn btn-default" href="https://storyzink.com/m/gd393024?s=2" target="_blanc">
+<div class="content" id="first" title="Message Us"><ion-icon name="megaphone-outline"></ion-icon>Message Us!<ion-icon name="megaphone-outline"></ion-icon></div>
 </a>
-
-<a href="https://www.youtube.com/channel/UC61VXfPklBBMO64Ihx6cRkg">
-<div class="content" id="second"><ion-icon name="logo-youtube"></ion-icon> Youtube <ion-icon name="logo-youtube"></ion-icon></div>
+<br>
+<a onclick="checker()" class="btn btn-default" href="https://www.youtube.com/channel/UC61VXfPklBBMO64Ihx6cRkg">
+<div class="content" id="second" title="Youtube"><ion-icon name="logo-youtube"></ion-icon> Youtube <ion-icon name="logo-youtube"></ion-icon></div>
 </a>
-
-<a href="#" target="_blanc">
-<div class="content" id="third"><ion-icon name="construct-outline"></ion-icon> *IN MAINTENANCE * <ion-icon name="construct-outline"></ion-icon></div>
+<br>
+<a onclick="checker2()" class="btn btn-default" href="#" target="_blanc">
+<div class="content" id="third" title="Nothing To See Here"><ion-icon name="construct-outline"></ion-icon> *IN MAINTENANCE * <ion-icon name="construct-outline"></ion-icon></div>
 </a>
-
+<br>
+<hr class="Custom1-hr">
 <img src="MC1.png" alt="Image Here" class="ImgMain">
 
 <h4>Server Admin</h4>
@@ -450,11 +784,11 @@ h1{
 <br>
 <li>Eli - The Strict One</li>
 <br>
-<li>FLIGHNE</li>
+<li>FLIGHNE - The N/A</li>
 <br>
 <li>Quared - The Stress Maker</li>
 <br>
-<li>Kida - NA</li>
+<li>Kida - The N/A </li>
 <br>
 <li>Midnight_Raven - The Builder</li>
 </ol>
@@ -476,11 +810,15 @@ h1{
 <h4>= About This Server =</h4>
 <text>This Server Is Run By</Text>
 <a href="https://aternos.org/:en/" target="_blanc">
-<text2 style="font-size:25px"> Aternos </text2>
+    <div class="tooltip3">
+        Aternos
+<text2 class="tooltiptext2" title="Aternos.org"> Aternos.org </text2>
+</div>
 </a>
 <text3 style="font-size:25px">And Was Created Because We Want to Make New Friends</text3>
 <div class="background-image"></div>
-
+<br>
+<text>About Our Tooltpips We Are Still Working On It To Be Able To Be Rsponsive :)</text>
 <h4>Rules of The Server</h4>
 <text> Rules Are Be Kind And Respectfull to Everyone, Dont Be Rude </text>
 <h4>Pictures</h4>
@@ -497,7 +835,7 @@ h1{
     Hard Time On Navigating Our Website Please Let Us Know By Sending A "Form" To Let Us Know What We Will Improve Thank You! 😀😁 <i class="fa-solid fa-circle-question"></i></text9>
 <h1> <i class="fa-solid fa-question"></i> || How To Send A Form? || <i class="fa-solid fa-question"></i></h1>
 <c>
-<li>1. Go To IP Adress Page And NAvigate To The Bottom Part</li>
+<li>1. Go To IP Adress Page And Navigate To The Bottom Part</li>
 <br>
 <li>2. Fill Up The Box And Click Send</li>
 <br>
@@ -508,22 +846,22 @@ h1{
 <li>5. Waiting Will Be Within 24 Hours If We Are Not Busy</li>
 </c>
 
-<h4><i class="fa-solid fa-file-pen"></i> BTNT 1.5 : ||Update Of This Website|| <i class="fa-solid fa-file-pen"></i></h4>
+<h4><i class="fa-solid fa-file-pen"></i> BTNT 2.5 : ||Whats New?|| <i class="fa-solid fa-file-pen"></i></h4>
 <text9>
 <c>
-    <li>1. Fixed Bugs On Clickable Link</li>
+    <li>1. Added The Loading Page</li>
     <br>
     <li>2. Added Auto,Dark,Light Mode For You</li>
     <br>
     <li>3. Changed The Color Of Website *Not Yet official*</li>
     <br>
-    <li>4. Added The FeedBack Help</li>
+    <li>4. Added Go To Top Button</li>
     <br>
     <li>5. Modified The Form At FeedBack</li>
     <br>
     <li>6. Added BTSMP Trailer Video</li>
     <br>
-    <li>7. Fixed Colors In Website</li>
+    <li>7. Added The Shoutouts Page In IP Adress Button in Navigation Bar</li>
     </c>
     </text9>
 <h4 onmouseover="changeText(this, 'Trailer Edited By: FLIGHNE')" onmouseout="changeText(this, 'SMP Video Trailer')"> SMP Video Trailer </h4>
@@ -535,19 +873,39 @@ h1{
 
 <footer>
     <div class="content-footer">
-    <h6><ion-icon name="checkmark-done-circle-outline"></ion-icon> Bawal TNT SMP Website <ion-icon name="checkmark-done-circle-outline"></ion-icon></h6>
-    <p6><ion-icon name="create"></ion-icon> "This Website is Updated At 9:18 PM In Febuary 15 2023" <ion-icon name="create"></ion-icon>||<ion-icon name="build"></ion-icon> This Website Is Still For Rework Every Day <ion-icon name="build"></ion-icon></p6>
-    <p7><i class="fa-solid fa-house-signal"></i> Connect With Us <i class="fa-solid fa-house-signal"></i></p7>
+    <h6><ion-icon name="checkmark-done-circle-outline"></ion-icon> Bawal TNT SMP Website &trade; <ion-icon name="checkmark-done-circle-outline"></ion-icon></h6>
+    <img src="qr2.png" style="width: 5rem;height: 5rem;" />
+    <p6><ion-icon name="create"></ion-icon> "This Website is Updated At 7:08 PM In Febuary 27 2023" <ion-icon name="create"></ion-icon>||<ion-icon name="build"></ion-icon> This Website Is Still For Rework Every Day <ion-icon name="build"></ion-icon></p6>
+    <p7 title="Find Us Here"><i class="fa-solid fa-house-signal"></i> Connect With Us <i class="fa-solid fa-house-signal"></i></p7>
     <ul class="Socials">
-    <li ><a href="https://github.com/FLIGHNE"><ion-icon name="logo-github"></ion-icon></a></li>
+    <li title="Medal.TV"><a href="https://medal.tv/u/FLIGHNE"><i class="fa-solid fa-medal"></i></a></li>
     <li ><a href="https://www.youtube.com/channel/UC61VXfPklBBMO64Ihx6cRkg"><ion-icon name="logo-youtube"></ion-icon></a></li>
     <li ><a href="https://discord.gg/q5UHbjwCfp"><ion-icon name="logo-discord"></ion-icon></a></li>
     <li ><a href="https://www.twitch.tv/flighne"><ion-icon name="logo-twitch"></ion-icon></a></li>
     <li ><a href="https://twitter.com/FLIGHNE7"><ion-icon name="logo-twitter"></ion-icon></a></li>
     </ul>
+    <div class="footertext">
+        <div class="col-1">
+          <div class="foottext">Games</div>
+          <ul class="games">
+            <li><a href="https://www.minecraft.net/en-us" target="_blank">Minecraft</a></li>
+            <li><a href="https://www.riotgames.com/en" target="_blank">Valorant</a></li>
+            <li><a href="https://www.roblox.com/home" target="_blank">Roblox</a></li>
+          </ul>
+        </div>
+
+        <div class="col-2">
+          <div class="foottext">Help</div>
+          <ul class="games">
+            <li><a href="https://sites.google.com/view/btsmp-about-us/about-us?authuser=0" target="_blank">About Us</a></li>
+            <li class="discord"><a href="https://discord.gg/q5UHbjwCfp"target="_blank"> Discord</a></li>
+            <li><a href="FeedBack Forms.html" target="_blank">Feedback Forms</a></li>
+          </ul>
+        </div>
+        </div>
     </div>
     <div class="footer-bottom">
-<d>copyright &copy;2023 flighne.github.io designed by <span>FLIGHNE</span> </d>
+<d>copyright &copy; 2023 BawalTNTSmp.github.io designed by <span><z class="tooltip1" data-tooltip="Website Creator">FLIGHNE</z></span> </d>
     </div>
     </footer>
     </body>

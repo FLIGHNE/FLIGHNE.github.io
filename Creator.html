@@ -10,25 +10,116 @@
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 <script src="script.js"></script>
 
+</div>
+<div class="loader">
+  <img class="imgloader" src="loader.png">
+  <p class="textloader">BTSMP From FLIGHNE</p>
+
+</div>
+
+
+<div class="banner"></div>
+
+<br>
+
 <nav>
 <label class="logo"></label>
 <ul class="navbar">
     <div class="select">
         <i class="fa-solid fa-circle-half-stroke"></i>
-        <select class="select__input" id="selTheme">
+        <select class="select__input" id="selTheme" title="Change Theme">
             <option value="auto">Auto</option>
             <option value="light">Light</option>
             <option value="dark">Dark</option>
         </select>
     </div>
-<li onmouseover="changeBgColor(this, 'White')" onmouseout="changeBgColor(this, '#116C07')"><a href="index.html"><ion-icon name="home-outline"></ion-icon> Home</a></li>
-<li onmouseover="changeBgColor(this, 'White')" onmouseout="changeBgColor(this, '#116C07')"><a href="https://linktr.ee/flighne?utm_source=linktree_profile_share&ltsid=c9247d2c-b871-49aa-8f4c-a41dc4b9a492"><ion-icon name="share-social-outline"></ion-icon> Socials</a></li>
-<li onmouseover="changeBgColor(this, 'White')" onmouseout="changeBgColor(this, '#116C07')"><a href="Creator.html"><ion-icon name="people-outline"></ion-icon> Creators</a></li>
-<li onmouseover="changeBgColor(this, 'White')" onmouseout="changeBgColor(this, '#116C07')"><a href="https://discord.gg/q5UHbjwCfp"><ion-icon name="logo-discord"></ion-icon> Discord</a></li>
-<li onmouseover="changeBgColor(this, 'White')" onmouseout="changeBgColor(this, '#116C07')"><a href="IP Adress.html"><ion-icon name="barcode-outline"></ion-icon> IP ADRESS</a></li>
+<li onmouseover="changeBgColor(this, 'White')" onmouseout="changeBgColor(this, '#116C07')" title="Go Home"><a href="index.html"><ion-icon name="home-outline"></ion-icon> Home</a></li>
+<li onmouseover="changeBgColor(this, 'White')" onmouseout="changeBgColor(this, '#116C07')" title="Socials"><a onclick="checker()" class="btn btn-default" href="https://linktr.ee/flighne?utm_source=linktree_profile_share&ltsid=c9247d2c-b871-49aa-8f4c-a41dc4b9a492" target="_blank"><ion-icon name="share-social-outline"></ion-icon> Socials</a></li>
+<li onmouseover="changeBgColor(this, 'White')" onmouseout="changeBgColor(this, '#116C07')" title="Creators"><a href="Creator.html"><ion-icon name="people-outline"></ion-icon> Creators</a></li>
+<li onmouseover="changeBgColor(this, 'White')" onmouseout="changeBgColor(this, '#116C07')" title="Discord"><a onclick="checker()" class="btn btn-default" href="https://discord.gg/q5UHbjwCfp" target="_blank"><ion-icon name="logo-discord"></ion-icon> Discord</a></li>
+<li class="dropdown" onmouseover="changeBgColor(this, 'White')" onmouseout="changeBgColor(this, '#116C07')" title="IP Adress & FeedBack Form">
+<a href="IP Adress.html"><ion-icon name="barcode-outline"></ion-icon> IP ADRESS</a>
+<ul>
+   <li onmouseover="changeBgColor(this, 'White')" onmouseout="changeBgColor(this, '#116C07')"><a href="Shoutout.html">Shoutouts</a></li>
+</ul>
+</li>
 </nav>
 
+
 <style>
+.dropdown ul {
+  background-color: #116C07;
+  display: none;
+  position: absolute;
+  margin-top: 52.5%;
+  margin-left: 74.3%;
+}
+
+.dropdown:hover ul {
+  display: block;
+}
+
+.dropdown ul li {
+  display: block;
+}
+
+.dropdown ul li a {
+  padding: 20px;
+}
+
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #555;
+    z-index: 9999;
+}
+
+.loader {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 104vw;
+  height: 105vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #333333;
+  transition: opacity 0.75s, visibility 1.5s;
+  z-index: 99999;
+}
+
+.loader--hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loader::after {
+  content: "";
+  width: 75px;
+  height: 75px;
+  border: 15px solid #FAEBD7;
+  border-top-color: #FFBF00;
+  border-radius: 50%;
+  animation: loading .4s ease infinite;
+}
+.textloader{
+  color: #dddddd;
+  font-size: 16px;
+}
+
+@keyframes loading {
+  from {
+    transform: rotate(0turn);
+  }
+  to {
+    transform: rotate(1turn);
+  }
+}
 
 ::-webkit-scrollbar {
     width: 10px;
@@ -80,12 +171,12 @@ background: #116C07
 
 .navbar ul {
 list-style: none;
-background:#9FE2BF;
 padding: 0;
 margin: 0;
 }
 .navbar li {
 display:inline-block;
+transition: all .3s ease;
 }
 .navbar a{
 text-decoration: none;
@@ -153,7 +244,7 @@ footer {
     top: 100%;
 background: #111;
 height: auto;
-width: 100vw;
+width: 100%;
 font-family: Open Sans;
 padding-top: 40px;
 color: #fff;
@@ -220,6 +311,7 @@ transition: transform .2s ease-in-out;
 }
 
 .footer-bottom span{
+    cursor: pointer;
     text-transform: uppercase;
     opacity: .4;
     font-weight: 200;
@@ -262,10 +354,366 @@ transition: transform .2s ease-in-out;
 .select__input option {
     color: #000000;
 }
+h4{
+    cursor: help;
+    background: #A143EF;
+border: 3px solid #000000;
+border-radius: 5px;
+text-align: center;
+}
+p4 {
+    font-size: 24px;
+    display: block;
+text-align: center;
+justify-content: center;
+    background: goldenrod;
+border: 3px solid #000000;
+border-radius: 5px;
+}
+
+.banner {
+   border: 3px solid rgb(179, 72, 72);
+width: 100%;
+height: 15%;
+background-image: url(creator.gif);
+background-size: cover;
+background-position: 50%;
+border-radius: 30px;
+margin-top: 20px;
+filter: brightness(60%);
+transition: filter .3s ease;
+}
+.banner:hover {
+    filter: brightness(80%);
+    cursor: default;
+}
+
+z::after{
+    position: absolute;
+    width: 12em;
+ background-color: #78B3EE;
+content: attr(data-tooltip);
+padding: 0.6rem 0;
+color: #fff;
+margin: auto;
+left: 25em;
+right: 0;
+bottom: 3.5em;
+text-align: center;
+border-radius: 0.2em;
+}
+
+.tooltip1::before{
+position: absolute;
+content: "";
+height: 0;
+width: 0;
+border-top:1.5em solid #78b3ee;
+border-left: 0.5em solid transparent;
+border-right: 0.5em solid transparent;
+top: 35.5em;
+margin: auto;
+left: 25em;
+right: 0;
+bottom: 3em;
+}
+.tooltip1:before, 
+.tooltip1:after {
+    display: none;
+}
+.tooltip1:hover:before, 
+.tooltip1:hover:after {
+display: block;
+}
+
+.tooltip1:after{
+    filter: brightness(100%)
+    position: absolute;
+    width: 12em;
+    background-color: #78B3EE;
+content: attr(data-tooltip);
+padding: 0.6rem 0;
+color: #fff;
+margin: auto;
+left: 25em;
+right: 0;
+bottom: 3.5em;
+text-align: center;
+border-radius: 0.2em;
+}
+.footertext {
+  display: flex;
+  margin-bottom: 20px;
+  margin-top: 0px;
+}
+
+.col-1, .col-2 {
+  flex-basis: 50%;
+  margin-inline: 100px;
+}
+.games {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.footertext .games{
+  list-style-type: none;
+  vertical-align: middle;
+}
+.footertext li{
+    text-align:unset;
+    white-space: nowrap;
+}
+.footertext a{
+    text-decoration: none;
+}
+
+.foottext {
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center;
+  justify-content: center;
+
+}
+.games :hover  {
+    color: #9FE2BF;
+    transform: scale(1.4);
+    transition: all .2s ease-in-out;
+}
+.footertext a {
+    color: #fde400;
+}
+/* The Box */
+.container3 .box {
+  top: 20%;
+  bottom: 0;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: cyan;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.container3 .box h2 {
+  font-size: 24px;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.container3 .box p {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 0;
+}
+
+
+
+
+
+
+/* The 3 Box */
+.container2
+ {
+  display: block;
+align-items: center;
+justify-content: center;
+position: relative;
+width: 1000px;
+height: 300px;
+margin: 100px auto;
+} 
+.container2 .box
+{
+  position: relative;
+width: calc(300px - 30px);
+height: calc(300px - 30px);
+background: #000;
+float: left;
+margin: 15px;
+box-sizing: border-box;
+overflow: hidden;
+border-radius: 10px;
+
+}
+.container2 .box .icon
+{
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: #f00;
+transition: 0.5s;
+z-index: 1;
+}
+.container2 .box:hover .icon
+{
+top: 20px;
+left: calc(50% - 40px);
+width: 80px;
+height: 80px;
+border-radius: 50%;
+}
+
+.container2 .box .icon .fa-solid
+{
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%,-50%);
+font-size: 80px;
+transition: 0.5s;
+color: #fff;
+}
+.container2 .box:hover .icon .fa-solid
+{
+  font-size: 40px;
+}
+.container2 .box .content1
+{
+  position: absolute;
+  top: 100%;
+  height: calc(100% - 100px);
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+  transition: 0.5s;
+  opacity: 0;
+}
+.container2 .box:hover .content1
+{
+top: 100px;
+opacity: 1;
+}
+.container2 .box .content1 h3
+{
+margin: 0;
+padding: 0;
+color: whitesmoke;
+font-size: 24px;
+}
+.container2 .box .content1 p
+{
+  margin: 0;
+padding: 0;
+color: #fff;
+}
+ 
+.container2 .box:nth-child(1) .icon
+{
+background: #319635;
+}
+.container2 .box:nth-child(1)
+{
+  background: #4caf50;
+}
+/* Second Box */
+.container2 .box:nth-child(2) .icon
+{
+background: #d03852;
+}
+.container2 .box:nth-child(2)
+{
+  background: #f54967;
+}
+/* Third Box */
+.container2 .box:nth-child(3) .icon
+{
+background: #23798e;
+}
+.container2 .box:nth-child(3)
+{
+  background: #328fa5;
+}
+
+/* DropDown Question */
+
+.wrapper1
+{
+display: flex;
+padding-top: 50px;
+align-items: center;
+justify-content: center;
+}
+.collapsible 
+{
+max-width: 900px;
+overflow: hidden;
+font-weight: 500;
+}
+.collapsible input
+{
+  display: none;
+}
+.collapsible label
+{
+position: relative;
+font-weight: 600;
+background: aquamarine;
+box-shadow: 0 5px 11px 0 rgba(0, 0, 0, .08);
+color: black;
+display: block;
+margin-bottom: 10px;
+cursor: pointer;
+padding: 15px;
+border-radius: 4px;
+}
+.collapsible label::after
+{
+  content: "";
+  position: absolute;
+  right: 15px;
+  top: 20px;
+  width: 18px;
+  height: 18px;
+  background: url(arrow.svg);
+  transition: all 0.3s ease;
+}
+.collapsible input:checked + label:after
+{
+transform: rotate(90deg);
+}
+
+.collapsible-text 
+{
+  max-height: 1px;
+  overflow: hidden;
+  border-radius: 4px;
+  line-height: 1.4;
+  position: relative;
+  top: -100%;
+  opacity: 0.5;
+  transition: all 0.3s ease;
+}
+.collapsible input:checked ~ .collapsible-text
+{
+max-height: 300px;
+padding-bottom: 25px;
+background: blanchedalmond;
+box-shadow: 0 5px 11px 0 rgba(0, 0, 0, .1),0 4px 11px 0 rgba(0, 0, 0, .08);
+opacity: 1;
+top: 0;
+}
+.collapsible-text h2
+{
+margin-bottom: 10px;
+padding: 15px 15px 0;
+color: orange;
+
+}
+.collapsible-text p
+{
+  padding-left: 15px;
+  padding-right: 15px;
+}
 
 
 
 </style>
+
 
 <img src="Home.png"  height="300" width="300" alt="Image Here"/>
 
@@ -282,28 +730,106 @@ transition: transform .2s ease-in-out;
 <a href="https://storyzink.com/m/gd393024?s=2" target="_blanc">
 <p3>HERE!</p3>
 </a>
-<h3 style="font-size: 25px;"><ion-icon name="create-outline"></ion-icon> Server Creators</h3>
-<p1 onmouseover="changeText(this, 'Oldies - Old Friends')" onmouseout="changeText(this, 'OLDIES a Group Of Friend Who BALBLABLA DI PA TAPOS SORRY HAHAHAHA')">OLDIES a Group Of Friend Who BALBLABLA DI PA TAPOS SORRY HAHAHAHA</p1>
-</b>
+<b></b>
+<h4 style="font-size: 25px;"><ion-icon name="create-outline"></ion-icon> Server Creators</h4>
+<p4>OLDIES a Group Of Friend Who Are Friends For 11 years Now, And Created This Server To Be Able To Play With Each Other And To Make More Friends</p4>
+<p4>Members: FLIGHNE, ELI, UZI, BOGART, MIDNIGHT_RAVEN, XANDRA</p4>
 <br>
+
+
+
+<!-- The 3 None Hover Box -->
+<div class="container3">
+<div class="box">
+  <h2>Want To Know About Us?</h2>
+  <p>Kindly Hover Over The First Box Below This 3 Box To know More About Us Or Click The About US In The Footer.</p>
+</div>
+</div>
+
+<div class="wrapper1">
+  <div class="collapsible">
+    <input type="checkbox" id="collapsible-head">
+    <label for="collapsible-head"> How To Join? </label>
+    <div class="collapsible-text">
+      <h2>How To Join?</h2>
+      <p>Copy The IP Adress From The IP Adress Page Ang Paste It In The Multiplayer IP Adress TextArea And Click Join. Note: Server May Be Down Sometimes Due To OverLoad.</p>
+      </div>
+  </div>
+  </div>
+
+<!-- The 3 Box -->
+<div class="container2">
+ <div class="box">
+<div class="icon"><i class="fa-solid fa-circle-question"></i></div>
+<div class="content1">
+  <h3>About Us</h3>
+  <p>We Are A Goup of Friend Compose of Atleast 10 Persons, We Want To Make New Friends So We Desided To Create A SMP "Survival Multiplayer" Minecraft Server</p>
+</div>
+ </div>
+  <div class="box">
+ <div class="icon"><i class="fa-solid fa-earth-asia"></i></div>
+ <div class="content1">
+   <h3>Where Are We From?</h3>
+   <p>Our Group Came From ASIA Dont Want To Specify The Country || Our Languange Are English</p>
+ </div>
+  </div>
+    <div class="box">
+   <div class="icon"><i class="fa-solid fa-code"></i></div>
+   <div class="content1">
+     <h3>Who Made The Website?</h3>
+     <p>Hi I'm FLIGHNE I Play Games Speacially Valorant, Minecraft, Roblox, ETC. | I Just Tried Coding And Created This Website For Fun 😀</p>
+    </div>
+    </div>
+</div>
+
+
+<br>
+
+
+
+
+
+
+
+
 
 
 
 <footer>
     <div class="content-footer">
-    <h6><ion-icon name="checkmark-done-circle-outline"></ion-icon> Bawal TNT SMP Website <ion-icon name="checkmark-done-circle-outline"></ion-icon></h6>
-    <p6><ion-icon name="create"></ion-icon> "This Website is Updated At 9:18 PM In Febuary 15 2023" <ion-icon name="create"></ion-icon>||<ion-icon name="build"></ion-icon> This Website Is Still For Rework Every Day <ion-icon name="build"></ion-icon></p6>
+    <h6><ion-icon name="checkmark-done-circle-outline"></ion-icon> Bawal TNT SMP Website &trade; <ion-icon name="checkmark-done-circle-outline"></ion-icon></h6>
+    <img src="qr2.png" style="width: 5rem;height: 5rem;" />
+    <p6><ion-icon name="create"></ion-icon> "This Website is Updated At 7:08 PM In Febuary 27 2023" <ion-icon name="create"></ion-icon>||<ion-icon name="build"></ion-icon> This Website Is Still For Rework Every Day <ion-icon name="build"></ion-icon></p6>
     <p7><i class="fa-solid fa-house-signal"></i> Connect With Us <i class="fa-solid fa-house-signal"></i></p7>
     <ul class="Socials">
-    <li><a href="https://github.com/FLIGHNE"><ion-icon name="logo-github"></ion-icon></a></li>
+    <li title="Medal.TV"><a href="https://medal.tv/u/FLIGHNE"><i class="fa-solid fa-medal"></i></a></li>
     <li><a href="https://www.youtube.com/channel/UC61VXfPklBBMO64Ihx6cRkg"><ion-icon name="logo-youtube"></ion-icon></a></li>
     <li><a href="https://discord.gg/q5UHbjwCfp"><ion-icon name="logo-discord"></ion-icon></a></li>
     <li><a href="https://www.twitch.tv/flighne"><ion-icon name="logo-twitch"></ion-icon></a></li>
     <li><a href="https://twitter.com/FLIGHNE7"><ion-icon name="logo-twitter"></ion-icon></a></li>
     </ul>
+    <div class="footertext">
+        <div class="col-1">
+          <div class="foottext">Games</div>
+          <ul class="games">
+            <li><a href="https://www.minecraft.net/en-us" target="_blank">Minecraft</a></li>
+            <li><a href="https://www.riotgames.com/en" target="_blank">Valorant</a></li>
+            <li><a href="https://www.roblox.com/home" target="_blank">Roblox</a></li>
+          </ul>
+        </div>
+
+        <div class="col-2">
+          <div class="foottext">Help</div>
+          <ul class="games">
+            <li><a href="https://sites.google.com/view/btsmp-about-us/about-us?authuser=0" target="_blank">About Us</a></li>
+            <li class="discord"><a href="https://discord.gg/q5UHbjwCfp"target="_blank"> Discord</a></li>
+            <li><a href="FeedBack Forms.html" target="_blank">Feedback Forms</a></li>
+          </ul>
+        </div>
+        </div>
     </div>
     <div class="footer-bottom">
-<d>copyright &copy;2023 flighne.github.io designed by <span>FLIGHNE</span> </d>
+<d>copyright &copy; 2023 BawalTNTSmp.github.io designed by <span><z class="tooltip1" data-tooltip="Website Creator">FLIGHNE</z></span> </d>
     </div>
     </footer>
 </body>
